@@ -9,16 +9,11 @@ for line in sys.stdin:
         exit()
 
     edges = set()
-    node_edge_count = list()
+    node_edge_count = [0] * nodes_amount
 
     for i in range(edges_amount):
         a, b = map(int, input().split())
         edges.add((a,b))
-
-        if a not in node_edge_count:
-            node_edge_count[a] = 0
-        if b not in node_edge_count:
-            node_edge_count[b] = 0
             
         node_edge_count[a] += 1
         node_edge_count[b] += 1
@@ -26,4 +21,6 @@ for line in sys.stdin:
     for i in node_edge_count:
         if i < 2:
             print("Yes")
-            exit()
+            break
+    else:
+        print("No")
