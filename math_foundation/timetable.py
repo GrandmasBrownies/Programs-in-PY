@@ -10,7 +10,7 @@ for line in sys.stdin:
     h2, m2 = map(int, t2.split(':')) 
     h3, m3 = map(int, t3.split(':'))
 
-    if h0 < h3:
+    if h0 < h3 or (h0 == h3 and m0 < m3):
         if h1 > h2 or (h1 == h2 and m1 > m2):
             print("conflict")
         else:
